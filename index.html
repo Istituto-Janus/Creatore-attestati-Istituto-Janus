@@ -185,6 +185,8 @@
     color:#1b2148;
     margin:30px 0 -6px;
     line-height:1;
+    word-spacing:8px;
+    letter-spacing:0.5px;
   }
   .cert-footer{
     margin-top:30px;
@@ -201,11 +203,41 @@
   }
 
   @media print{
-    body{ background:#fff; padding:0; }
+    @page{
+      size: A4 portrait;
+      margin: 0;
+    }
+    html, body{
+      width:210mm;
+      height:297mm;
+      background:#fff;
+      padding:0;
+      margin:0;
+    }
     .panel.form-panel, .actions{ display:none !important; }
-    .wrap{ display:block; }
-    #certificato-outer{ border:none; border-radius:0; }
-    #certificato{ padding:30px 50px; }
+    .wrap{
+      display:block;
+      max-width:none;
+      gap:0;
+    }
+    #certificato-outer{
+      border:none;
+      border-radius:0;
+      width:210mm;
+      height:297mm;
+      page-break-after: avoid;
+      page-break-inside: avoid;
+    }
+    #certificato{
+      width:210mm;
+      height:297mm;
+      padding:18mm 20mm 14mm;
+      min-height:0;
+      box-sizing:border-box;
+      page-break-inside: avoid;
+    }
+    .cert-title{ margin-bottom:24px; }
+    .cert-body p{ margin:0 0 14px; }
   }
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -319,8 +351,8 @@
         <div>Roma, <strong id="outEmissione">[DATA DI EMISSIONE]</strong></div>
         <div class="role">
           L'Amministratore Delegato<br>
-          <div class="signature">Pietro Di Palo</div>
-          <strong>Pietro Di Palo</strong>
+          <div class="signature">Pietro Dipalo</div>
+          <strong>Pietro Dipalo</strong>
         </div>
       </div>
 
